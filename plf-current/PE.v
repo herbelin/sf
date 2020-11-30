@@ -1638,7 +1638,7 @@ Proof. intros.
       destruct x as [st' [pe_st' l'_] ].
       symmetry in Heqx. erewrite pe_block_correct in Hkeval by apply Heqx.
       inversion Hkeval. subst st'o l'_. clear Hkeval.
-      edestruct IHHeval. reflexivity. subst st''o. clear IHHeval.
+      edestruct IHHeval. reflexivity. subst st''o. try clear IHHeval.
       eapply pe_peval_intro; [| reflexivity]. eapply E_Some; eauto.
       simpl. rewrite Hlookup. reflexivity.
   - (* <- *) intros [st' pe_st' Heval Heqst'o].
